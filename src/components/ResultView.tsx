@@ -56,16 +56,14 @@ const DIMENSION_COLORS: Record<string, string> = {
   '行为习惯': '#FF9FF3',
 };
 
-// Try multiple backend URLs - the tunnel URL changes each restart
-// The frontend will try each one until it finds a working backend
-const API_BASES = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-  ? ['']
-  : [
-      'https://survey-1782287360.loca.lt',  // Current active tunnel
-      'https://youde-survey-data.loca.lt',
-      'https://youde-results.loca.lt',
-      'https://youde-xizheng-survey.loca.lt',
-    ];
+// API endpoints to try - first try same origin, then fallback to tunnels
+const API_BASES = [
+  '',  // Same origin - works when frontend+backend are on the same server
+  'https://survey-1782287360.loca.lt',
+  'https://youde-survey-data.loca.lt',
+  'https://youde-results.loca.lt',
+  'https://youde-xizheng-survey.loca.lt',
+];
 
 async function fetchWithFallback(path: string, options: RequestInit): Promise<Response> {
   let lastError: Error | null = null;

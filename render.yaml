@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: youde-xizheng-survey
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    plan: free
+    branch: master
+    healthCheckPath: /api/results/stats
