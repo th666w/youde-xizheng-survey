@@ -1,0 +1,89 @@
+/* TDesign Theme Overrides */
+:root {
+  --td-brand-color: #667eea;
+  --td-brand-color-1: #eef0ff;
+  --td-brand-color-2: #d9dfff;
+  --td-brand-color-3: #bcc7ff;
+  --td-brand-color-4: #96a6ff;
+  --td-brand-color-5: #667eea;
+  --td-brand-color-6: #5a6fd6;
+  --td-brand-color-7: #4a5bb8;
+  --td-brand-color-8: #3b4a99;
+  --td-brand-color-9: #2c397a;
+  --td-brand-color-10: #1e285c;
+}
+
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d0d0d0;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}
+
+/* Card hover effect */
+.t-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.15) !important;
+}
+
+/* Progress bar smooth animation */
+.t-progress__inner {
+  transition: width 0.5s ease;
+}
+
+/* Print styles */
+@media print {
+  .min-h-screen {
+    min-height: auto !important;
+  }
+
+  [style*="position: fixed"],
+  [style*="position:fixed"] {
+    display: none !important;
+  }
+
+  .t-card {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    break-inside: avoid;
+  }
+}
+
+/* Selection highlight */
+.t-tag--primary.t-tag--light {
+  background: var(--td-brand-color-1);
+}
+
+/* Button hover animation */
+.t-button {
+  transition: all 0.2s ease;
+}
+
+.t-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
